@@ -22,11 +22,11 @@ public class Controller implements ActionListener {
     public void actionPerformed(ActionEvent e) {
 
         String searchTerm = searchTermTextField.getText();
-        if (searchTerm != null && !"".equals(searchTerm)) {
+        if (searchTerm != null) {
             Object[][] newData = new Object[Constants.DATA.length][];
             int idx = 0;
             for (Object[] o : Constants.DATA) {
-                if ("*".equals(searchTerm.trim())) {
+                if ("*".equals(searchTerm.trim()) || "".equals(searchTerm.trim())) {
                     newData[idx++] = o;
                 } else {
                     if (String.valueOf(o[0]).startsWith(searchTerm.toUpperCase().trim())) {
